@@ -3,9 +3,8 @@ namespace ttm_dao_doctrine\dao;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
-use ttm\dao\Dao;
 use ttm\model\ObjectBO;
-
+use ttm\dao\Dao;
 
 class DoctrineDao implements Dao{
 
