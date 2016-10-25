@@ -2,7 +2,7 @@
 	"name" : "flaviodev/ttm-dao-doctrine",
 	"type" : "library",
 	"description" : "Architecture Core",
-	"version" : "1.0.0",
+	"version" : "master",
 	"license" : "MIT",
 	"minimum-stability" : "dev",
 	"keywords" : [
@@ -15,8 +15,7 @@
 		}
 	],
 	"require" : {
-		"php" : "^7.0",
-		"doctrine/orm": "^2.5"
+		"php" : "^7.0"
 	},
 	"autoload" : {
 		"psr-4" : {
