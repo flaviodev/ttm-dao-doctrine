@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8a36f72797e68f5ed5a086d041e15a05",
-    "content-hash": "7568cbd842f7f150e8aa8a5d4b3d4a5e",
+    "hash": "1e57613e10db4d4752b9396efb6e4498",
+    "content-hash": "5107c24bb6b538e7a3d4bd9826554f48",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -608,47 +608,6 @@
                 "orm"
             ],
             "time": "2016-10-18 17:00:10"
-        },
-        {
-            "name": "flaviodev/ttm-core-php",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/flaviodev/ttm-core-php.git",
-                "reference": "64c3a8145e966c51de6e14157a989e2405977419"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/flaviodev/ttm-core-php/zipball/64c3a8145e966c51de6e14157a989e2405977419",
-                "reference": "64c3a8145e966c51de6e14157a989e2405977419",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "\\": "/",
-                    "ttm\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Flávio de Souza",
-                    "email": "fdsdev@gmail.com"
-                }
-            ],
-            "description": "Architecture Core",
-            "homepage": "https://github.com/flaviodev/ttm-core-php",
-            "keywords": [
-                "core"
-            ],
-            "time": "2016-10-25 11:05:46"
         },
         {
             "name": "psr/log",
