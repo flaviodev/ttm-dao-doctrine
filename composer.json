@@ -20,7 +20,8 @@
 	"autoload" : {
 		"psr-4" : {
 			"\\" : "/",
-			"ttm_dao_doctrine\\" : "src/"
+			"ttm_dao_doctrine\\" : "src/",
+			"Doctrine\\" : "vendor/doctine"
 		}
 	},
 	"require-dev": {
