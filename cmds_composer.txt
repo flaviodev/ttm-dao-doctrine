@@ -1,4 +1,4 @@
-composer require doctrine/orm 
+composer require doctrine/orm --prefer-dist --dev 
 
 composer update
 composer clear-cache
