@@ -22,7 +22,7 @@
 	"autoload" : {
 		"psr-4" : {
 			"\\" : "/",
-			"ttm\\" : "src/"
+			"ttm_dao_doctrine\\" : "src/"
 		}
 	}
 }

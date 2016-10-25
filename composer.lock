@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "181b86c53acc29f62d99be06c92ba6f5",
+    "hash": "8a36f72797e68f5ed5a086d041e15a05",
     "content-hash": "7568cbd842f7f150e8aa8a5d4b3d4a5e",
     "packages": [
         {
@@ -540,7 +540,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/cf1ba3183d94bf6e5f137d95c85afc39dd7ee2b4",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/26cf90e1c513305e1cc6529e4496130a7f0c6dcf",
                 "reference": "d6eddab94fd71f18ee80b9d7f2a26fd4b32b246c",
                 "shasum": ""
             },

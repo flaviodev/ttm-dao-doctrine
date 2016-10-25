@@ -783,7 +783,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/cf1ba3183d94bf6e5f137d95c85afc39dd7ee2b4",
+            "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/26cf90e1c513305e1cc6529e4496130a7f0c6dcf",
             "reference": "d6eddab94fd71f18ee80b9d7f2a26fd4b32b246c",
             "shasum": ""
         },

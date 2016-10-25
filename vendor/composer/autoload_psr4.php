@@ -6,7 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'ttm\\' => array($baseDir . '/src', $vendorDir . '/flaviodev/ttm-core-php/src'),
+    'ttm_dao_doctrine\\' => array($baseDir . '/src'),
+    'ttm\\' => array($vendorDir . '/flaviodev/ttm-core-php/src'),
     '\\' => array('/', $vendorDir . '/flaviodev/ttm-core-php'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Component\\Debug\\' => array($vendorDir . '/symfony/debug'),
