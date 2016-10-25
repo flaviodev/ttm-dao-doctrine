@@ -21,7 +21,7 @@
 		"psr-4" : {
 			"\\" : "/",
 			"ttm_dao_doctrine\\" : "src/",
-			"Doctrine\\" : "vendor/doctine"
+			"Doctrine\\" : "vendor/doctine/"
 		}
 	},
 	"require-dev": {
