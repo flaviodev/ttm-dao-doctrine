@@ -860,18 +860,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/flaviodev/ttm-core-php.git",
-            "reference": "73544503b06083cce3478c78a6d700668f0eb0a5"
+            "reference": "64c3a8145e966c51de6e14157a989e2405977419"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/flaviodev/ttm-core-php/zipball/73544503b06083cce3478c78a6d700668f0eb0a5",
-            "reference": "73544503b06083cce3478c78a6d700668f0eb0a5",
+            "url": "https://api.github.com/repos/flaviodev/ttm-core-php/zipball/64c3a8145e966c51de6e14157a989e2405977419",
+            "reference": "64c3a8145e966c51de6e14157a989e2405977419",
             "shasum": ""
         },
         "require": {
             "php": "^7.0"
         },
-        "time": "2016-10-25 03:50:11",
+        "time": "2016-10-25 11:05:46",
         "type": "library",
         "installation-source": "source",
         "autoload": {

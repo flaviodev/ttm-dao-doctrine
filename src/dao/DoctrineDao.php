@@ -7,7 +7,6 @@ use ttm\model\ObjectBO;
 use ttm\dao\Dao;
 
 class DoctrineDao implements Dao{
-
 	private $entityManager;
 	
 	public function __construct(array $config) {
@@ -52,28 +51,4 @@ class DoctrineDao implements Dao{
 		
 		return $this->entityManager;
 	}
-	
-// 	private static function create():EntityManager {
-// 		$entidades = array("/curriculum/src/model");
-		
-// 		// Create a simple "default" Doctrine ORM configuration for Annotations
-// 		$isDevMode = true;
-// 		$config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src/model"), $isDevMode);
-		
-		
-// 		// configura��es de conex�o. Coloque aqui os seus dados
-// 		$dbParams = array(
-// 				'driver'   => 'pdo_mysql',
-// 				'user'     => 'root',
-// 				'password' => '23775811',
-// 				'dbname'   => 'curriculum_vitae',
-// 		);
-		
-	
-// 		//criando o Entity Manager com base nas configura��es de dev e banco de dados
-// 		return EntityManager::create($dbParams, $config);
-		
-// 	}
-	
-	
 }
