@@ -1,1 +1,5 @@
- composer update flaviodev/ttm-core-php --prefer-source
+composer require doctrine/orm 
+
+composer update
+composer clear-cache
+composer dumpautoload
