@@ -540,7 +540,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/d6eddab94fd71f18ee80b9d7f2a26fd4b32b246c",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/cf1ba3183d94bf6e5f137d95c85afc39dd7ee2b4",
                 "reference": "d6eddab94fd71f18ee80b9d7f2a26fd4b32b246c",
                 "shasum": ""
             },
@@ -615,12 +615,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/flaviodev/ttm-core-php.git",
-                "reference": "091e5390d5563e6af819c75a9d938e93db0294f6"
+                "reference": "73544503b06083cce3478c78a6d700668f0eb0a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flaviodev/ttm-core-php/zipball/091e5390d5563e6af819c75a9d938e93db0294f6",
-                "reference": "091e5390d5563e6af819c75a9d938e93db0294f6",
+                "url": "https://api.github.com/repos/flaviodev/ttm-core-php/zipball/73544503b06083cce3478c78a6d700668f0eb0a5",
+                "reference": "73544503b06083cce3478c78a6d700668f0eb0a5",
                 "shasum": ""
             },
             "require": {
@@ -648,7 +648,7 @@
             "keywords": [
                 "core"
             ],
-            "time": "2016-10-25 03:01:48"
+            "time": "2016-10-25 03:50:11"
         },
         {
             "name": "psr/log",
