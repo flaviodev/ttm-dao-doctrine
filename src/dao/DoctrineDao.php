@@ -63,7 +63,7 @@ class DoctrineDao implements Dao{
 			$dataConnection["driver"] = $options["driver"];
 			$dataConnection["host"] = $options["host"];
 			$dataConnection["dbname"] = $options["dbname"];
-			$dataConnection["root"] = $options["root"];
+			$dataConnection["user"] = $options["user"];
 			$dataConnection["password"] = $options["password"];
 				
 			$this->entityManager = EntityManager::create($dataConnection, $config);
