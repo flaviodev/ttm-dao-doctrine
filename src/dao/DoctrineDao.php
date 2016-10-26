@@ -45,7 +45,7 @@ class DoctrineDao implements Dao{
 		
 	private function getEntityManager(array $config=null):EntityManager {
 		if(is_null($this->entityManager) && !is_null($config)) {
-			$doctrineConfig = Setup::createAnnotationMetadataConfiguration(array($config['entitiesPath']), $config['isDevMode']);
+			$doctrineConfig = Setup::createAnnotationMetadataConfiguration(array($config['entitiesPath']), $config['isDevMode'],$config['cacheDir']);
 			$this->entityManager = EntityManager::create($config,$doctrineConfig);
 		}
 		
