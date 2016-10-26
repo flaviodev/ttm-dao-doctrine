@@ -2,15 +2,17 @@
 namespace ttm_dao_doctrine\dao;
 
 use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\Tools\Setup;
 use ttm\model\ObjectBO;
 use ttm\dao\Dao;
+use Doctrine\ORM\Configuration;
+use Doctrine\Common\Cache\ArrayCache;
+
 
 class DoctrineDao implements Dao{
 	private $entityManager;
 	
-	public function __construct(array $config) {
-		$this->entityManager= $this->getEntityManager($config);
+	public function __construct(array $options) {
+		$this->entityManager= $this->getEntityManager($options);
 	}
 	
 	public function find($entityName, $key):ObjectBO {
@@ -43,10 +45,22 @@ class DoctrineDao implements Dao{
 		$em->flush($entity);
 	}
 		
-	private function getEntityManager(array $config=null):EntityManager {
-		if(is_null($this->entityManager) && !is_null($config)) {
-			$doctrineConfig = Setup::createAnnotationMetadataConfiguration(array($config['entitiesPath']), $config['isDevMode'],$config['cacheDir']);
-			$this->entityManager = EntityManager::create($config,$doctrineConfig);
+	private function getEntityManager(array $options=null):EntityManager {
+		if(is_null($this->entityManager) && !is_null($options)) {
+						 
+			$config = new Configuration();
+			$cache = new ArrayCache();
+			$driverImpl = $config->newDefaultAnnotationDriver($options['modelDir']);
+			
+			$config->setMetadataCacheImpl($cache);
+			$config->setQueryCacheImpl($cache);
+			$config->setProxyDir($options['proxyDir']);
+			$config->setProxyNamespace($options['proxyNamespace']);
+			$config->setAutoGenerateProxyClasses($options['autoGenerateProxyClasses']);
+			$config->setMetadataDriverImpl($driverImpl);
+			
+			
+			$this->entityManager = EntityManager::create($options['connection'], $config);
 		}
 		
 		return $this->entityManager;
