@@ -59,8 +59,14 @@ class DoctrineDao implements Dao{
 			$config->setAutoGenerateProxyClasses($options['autoGenerateProxyClasses']);
 			$config->setMetadataDriverImpl($driverImpl);
 			
-			
-			$this->entityManager = EntityManager::create($options['connection'], $config);
+			$dataConnection = array();
+			$dataConnection["driver"] = $options["driver"];
+			$dataConnection["host"] = $options["host"];
+			$dataConnection["dbname"] = $options["dbname"];
+			$dataConnection["root"] = $options["root"];
+			$dataConnection["23775811"] = $options["23775811"];
+				
+			$this->entityManager = EntityManager::create($dataConnection, $config);
 		}
 		
 		return $this->entityManager;
