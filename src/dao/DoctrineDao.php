@@ -45,7 +45,7 @@ class DoctrineDao implements Dao{
 		$em->flush($entity);
 	}
 		
-	private function getEntityManager(array $options=null):EntityManager {
+	public function getEntityManager(array $options=null) {
 		if(is_null($this->entityManager) && !is_null($options)) {
 						 
 			$config = new Configuration();
@@ -65,6 +65,7 @@ class DoctrineDao implements Dao{
 			$dataConnection["dbname"] = $options["dbname"];
 			$dataConnection["user"] = $options["user"];
 			$dataConnection["password"] = $options["password"];
+			$dataConnection["charset"] = $options["charset"];
 				
 			$this->entityManager = EntityManager::create($dataConnection, $config);
 		}
