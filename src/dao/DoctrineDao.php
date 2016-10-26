@@ -69,6 +69,7 @@ class DoctrineDao implements Dao{
 			$this->entityManager = EntityManager::create($dataConnection, $config);
 		}
 		
+		
 		return $this->entityManager;
 	}
 }
