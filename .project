@@ -3,6 +3,7 @@
 	<name>ttm-dao-doctrine</name>
 	<comment></comment>
 	<projects>
+		<project>ttm-core-php</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
