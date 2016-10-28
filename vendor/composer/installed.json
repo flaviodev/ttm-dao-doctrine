@@ -852,5 +852,48 @@
             "database",
             "orm"
         ]
+    },
+    {
+        "name": "flaviodev/ttm-core-php",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/flaviodev/ttm-core-php.git",
+            "reference": "61abe884d18ec1f8d4254fcafdd4b339fee6b97e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/flaviodev/ttm-core-php/zipball/61abe884d18ec1f8d4254fcafdd4b339fee6b97e",
+            "reference": "61abe884d18ec1f8d4254fcafdd4b339fee6b97e",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0"
+        },
+        "time": "2016-10-25 02:04:05",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "\\": "/",
+                "ttm\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Flávio de Souza",
+                "email": "fdsdev@gmail.com"
+            }
+        ],
+        "description": "Architecture Core",
+        "homepage": "https://github.com/flaviodev/ttm-core-php",
+        "keywords": [
+            "core"
+        ]
     }
 ]

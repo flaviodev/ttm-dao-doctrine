@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4dbec878d5ca500db96eda073c28ffb4",
-    "content-hash": "16c2ad88a9b5f2129bc6a8a254bd7dff",
+    "hash": "9bf7d8a46b9a4fbdf41cb223a7502183",
+    "content-hash": "1d608a22857d3c5efedca867b16912b4",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -608,6 +608,47 @@
                 "orm"
             ],
             "time": "2016-10-27 00:11:19"
+        },
+        {
+            "name": "flaviodev/ttm-core-php",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flaviodev/ttm-core-php.git",
+                "reference": "61abe884d18ec1f8d4254fcafdd4b339fee6b97e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flaviodev/ttm-core-php/zipball/61abe884d18ec1f8d4254fcafdd4b339fee6b97e",
+                "reference": "61abe884d18ec1f8d4254fcafdd4b339fee6b97e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "\\": "/",
+                    "ttm\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Flávio de Souza",
+                    "email": "fdsdev@gmail.com"
+                }
+            ],
+            "description": "Architecture Core",
+            "homepage": "https://github.com/flaviodev/ttm-core-php",
+            "keywords": [
+                "core"
+            ],
+            "time": "2016-10-25 02:04:05"
         },
         {
             "name": "psr/log",

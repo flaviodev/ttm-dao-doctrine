@@ -7,7 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'ttm_dao_doctrine\\' => array($baseDir . '/src'),
-    '\\' => array('/'),
+    'ttm\\' => array($vendorDir . '/flaviodev/ttm-core-php/src'),
+    '\\' => array('/', $vendorDir . '/flaviodev/ttm-core-php'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Component\\Debug\\' => array($vendorDir . '/symfony/debug'),
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),

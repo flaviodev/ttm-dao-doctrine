@@ -7,7 +7,15 @@ use ttm\dao\Dao;
 use Doctrine\ORM\Configuration;
 use Doctrine\Common\Cache\ArrayCache;
 
-
+/**
+ * DoctrineDao - Implementation of the ttm\dao\Dao using doctrine/orm
+ *
+ * @author flaviodev - Flávio de Souza - fdsdev@gmail.com
+ * @version 1.0
+ * @since 1.0
+ * @package ttm-dao-docrine
+ * @namespace ttm_dao_doctrine\dao
+ */
 class DoctrineDao implements Dao{
 	private $entityManager;
 	
