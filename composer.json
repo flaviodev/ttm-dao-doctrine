@@ -2,7 +2,7 @@
 	"name" : "flaviodev/ttm-dao-doctrine",
 	"type" : "library",
 	"description" : "Architecture Core",
-	"version" : "master-dev",
+	"version" : "master",
 	"license" : "MIT",
 	"minimum-stability" : "dev",
 	"keywords" : [

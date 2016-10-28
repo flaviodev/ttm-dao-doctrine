@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------------------
 # Dependeces management
 #-----------------------------------------------------------------------------------------
-$ composer require flaviodev/ttm-core-php:"master" --dev --prefer-source
+$ composer require flaviodev/ttm-core-php:"master" --dev --prefer-dist
 $ composer remove flaviodev/ttm-core-php 
 
 $ composer require doctrine/orm --dev --prefer-dist 
