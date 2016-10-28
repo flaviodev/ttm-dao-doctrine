@@ -873,7 +873,7 @@
         },
         "time": "2016-10-28 16:32:05",
         "type": "library",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "\\": "/",

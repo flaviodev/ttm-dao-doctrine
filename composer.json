@@ -2,7 +2,7 @@
 	"name" : "flaviodev/ttm-dao-doctrine",
 	"type" : "library",
 	"description" : "Architecture Core",
-	"version" : "master",
+	"version" : "dev-master",
 	"license" : "MIT",
 	"minimum-stability" : "dev",
 	"keywords" : [
@@ -24,7 +24,7 @@
 		}
 	},
 	"require-dev": {
-		"flaviodev/ttm-core-php": "master",
-		"doctrine/orm": "^2.5"
+		"doctrine/orm": "^2.5",
+		"flaviodev/ttm-core-php": "master"
 	}
 }
