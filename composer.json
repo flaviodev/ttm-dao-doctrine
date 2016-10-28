@@ -15,9 +15,7 @@
 		}
 	],
 	"require" : {
-		"php" : "^7.0",
-		"doctrine/orm": "^2.5",
-		"flaviodev/ttm-core-php": "^1.0"
+		"php" : "^7.0"
 	},
 	"autoload" : {
 		"psr-4" : {
@@ -26,5 +24,7 @@
 		}
 	},
 	"require-dev": {
+		"flaviodev/ttm-core-php": "master",
+		"doctrine/orm": "^2.5"
 	}
 }

@@ -4,9 +4,10 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9bf7d8a46b9a4fbdf41cb223a7502183",
-    "content-hash": "1d608a22857d3c5efedca867b16912b4",
-    "packages": [
+    "hash": "115d5edf525e99490379727728076084",
+    "content-hash": "e433bb6204ca929f7f4c274ab948e540",
+    "packages": [],
+    "packages-dev": [
         {
             "name": "doctrine/annotations",
             "version": "dev-master",
@@ -611,16 +612,16 @@
         },
         {
             "name": "flaviodev/ttm-core-php",
-            "version": "1.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/flaviodev/ttm-core-php.git",
-                "reference": "61abe884d18ec1f8d4254fcafdd4b339fee6b97e"
+                "reference": "cefca4d368b5894ea13816194448825060292978"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flaviodev/ttm-core-php/zipball/61abe884d18ec1f8d4254fcafdd4b339fee6b97e",
-                "reference": "61abe884d18ec1f8d4254fcafdd4b339fee6b97e",
+                "url": "https://api.github.com/repos/flaviodev/ttm-core-php/zipball/567524d9574801a81d0c7d9ca080cfdafcf0b740",
+                "reference": "cefca4d368b5894ea13816194448825060292978",
                 "shasum": ""
             },
             "require": {
@@ -648,7 +649,7 @@
             "keywords": [
                 "core"
             ],
-            "time": "2016-10-25 02:04:05"
+            "time": "2016-10-28 15:53:28"
         },
         {
             "name": "psr/log",
@@ -877,7 +878,6 @@
             "time": "2016-08-30 17:06:17"
         }
     ],
-    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": [],

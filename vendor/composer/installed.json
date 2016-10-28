@@ -1,5 +1,48 @@
 [
     {
+        "name": "flaviodev/ttm-core-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/flaviodev/ttm-core-php.git",
+            "reference": "cefca4d368b5894ea13816194448825060292978"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/flaviodev/ttm-core-php/zipball/567524d9574801a81d0c7d9ca080cfdafcf0b740",
+            "reference": "cefca4d368b5894ea13816194448825060292978",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0"
+        },
+        "time": "2016-10-28 15:53:28",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "\\": "/",
+                "ttm\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Flávio de Souza",
+                "email": "fdsdev@gmail.com"
+            }
+        ],
+        "description": "Architecture Core",
+        "homepage": "https://github.com/flaviodev/ttm-core-php",
+        "keywords": [
+            "core"
+        ]
+    },
+    {
         "name": "doctrine/lexer",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -851,49 +894,6 @@
         "keywords": [
             "database",
             "orm"
-        ]
-    },
-    {
-        "name": "flaviodev/ttm-core-php",
-        "version": "1.0.0",
-        "version_normalized": "1.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/flaviodev/ttm-core-php.git",
-            "reference": "61abe884d18ec1f8d4254fcafdd4b339fee6b97e"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/flaviodev/ttm-core-php/zipball/61abe884d18ec1f8d4254fcafdd4b339fee6b97e",
-            "reference": "61abe884d18ec1f8d4254fcafdd4b339fee6b97e",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^7.0"
-        },
-        "time": "2016-10-25 02:04:05",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "\\": "/",
-                "ttm\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Flávio de Souza",
-                "email": "fdsdev@gmail.com"
-            }
-        ],
-        "description": "Architecture Core",
-        "homepage": "https://github.com/flaviodev/ttm-core-php",
-        "keywords": [
-            "core"
         ]
     }
 ]

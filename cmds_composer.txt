@@ -1,5 +1,15 @@
-composer require doctrine/orm --prefer-dist --dev 
+#-----------------------------------------------------------------------------------------
+# Dependeces management
+#-----------------------------------------------------------------------------------------
+$ composer require flaviodev/ttm-core-php:"master" --dev --prefer-source
+$ composer remove flaviodev/ttm-core-php 
 
-composer update
-composer clear-cache
-composer dumpautoload
+$ composer require doctrine/orm --dev --prefer-dist 
+$ composer remove doctrine/orm
+
+$ composer update
+$ composer clear-cache
+$ composer dumpautoload
+
+
+
