@@ -128,18 +128,26 @@ class DoctrineDao implements Dao{
 	 */
 	public function getEntityManager(array $options=null) {
 		if(is_null($this->entityManager) && !is_null($options)) {
-						 
+			
+			// TODO must be implement validations of requiment sets and throws exception
+			
 			$config = new Configuration();
 			$cache = new ArrayCache();
+			// configuring the path of model classes
 			$driverImpl = $config->newDefaultAnnotationDriver($options['modelDir']);
 			
+			// configuring cache
 			$config->setMetadataCacheImpl($cache);
 			$config->setQueryCacheImpl($cache);
+			
+			//configuring data proxies, por auto generation de proxies (lazy-load)
 			$config->setProxyDir($options['proxyDir']);
 			$config->setProxyNamespace($options['proxyNamespace']);
 			$config->setAutoGenerateProxyClasses($options['autoGenerateProxyClasses']);
 			$config->setMetadataDriverImpl($driverImpl);
 			
+			//creating other array for database configuration
+			//just for use a unique parameter on method (for dont have two arrays)
 			$dataConnection = array();
 			$dataConnection["driver"] = $options["driver"];
 			$dataConnection["host"] = $options["host"];
