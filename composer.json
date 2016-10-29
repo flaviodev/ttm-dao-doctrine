@@ -1,13 +1,11 @@
 {
 	"name" : "flaviodev/ttm-dao-doctrine",
-	"type" : "library",
-	"description" : "Architecture Core",
+	"type" : "Architecture component",
+	"description" : "An implementation of a DAO for comunication on data bases using Doctrine ORM",
 	"version" : "dev-master",
 	"license" : "MIT",
 	"minimum-stability" : "dev",
-	"keywords" : [
-		"core"
-	],
+	"keywords" : ["core","api","dao","php","doctrine","orm","ttm"],
 	"homepage" : "https://github.com/flaviodev/ttm-dao-doctrine",
 	"authors" : [{
 			"name" : "Flávio de Souza",
