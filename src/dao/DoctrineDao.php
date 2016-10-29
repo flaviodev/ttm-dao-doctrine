@@ -10,30 +10,32 @@ use Doctrine\Common\Cache\ArrayCache;
 /**
  * DoctrineDao - Implementation of the ttm\dao\Dao using doctrine/orm
  *
- * @author flaviodev - Flávio de Souza - fdsdev@gmail.com
- * @version 1.0
- * @since 1.0
+ * @author flaviodev - Flávio de Souza TTM/ITS - fdsdev@gmail.com
+ * 
  * @package ttm-dao-docrine
  * @namespace ttm_dao_doctrine\dao
+ * @version 1.0
  */
 class DoctrineDao implements Dao{
 	/**
 	 * @property has the Doctrine's entity manager (Doctrine\ORM\EntityManager)
-	 *
-	 * @since 1.0
+	 * 
 	 * @access private
+	 * @since 1.0 
 	 */
 	private $entityManager;
 	
 	/**
 	 * @method constructor of class
-	 *
-	 * @since 1.0
-	 * @magic
-	 * @access public
+	 * 
 	 * @param array $options - has the options and configurations for 
 	 * create the Doctrine's entity manager (Doctrine\ORM\EntityManager)
-	 * required sets of array: driver, host, dbname, user, password, charset,modelDir,proxyDir,proxyNamespace,autoGenerateProxyClasses
+	 * required sets of array: driver, host, dbname, user, password, charset,
+	 * modelDir,proxyDir,proxyNamespace,autoGenerateProxyClasses
+	 * 
+	 * @magic 
+	 * @access public
+	 * @since 1.0 
 	 */
 	public function __construct(array $options) {
 		$this->entityManager= $this->getEntityManager($options);
@@ -42,12 +44,13 @@ class DoctrineDao implements Dao{
 	/**
 	 * @method Return a mapped object on data base (orm) corresponding to a type of
 	 * class (entity) and a id informed. Uses find method of EntityManager.
-	 *
-	 * @since 1.0
-	 * @access public
+	 * 
 	 * @param $entity - class of object (entity) mapped on data base
 	 * @param $id - primary key for find register on data base
 	 * @return ttm\model\ObjectBO - mapped object fill with data
+	 * 
+	 * @access public
+	 * @since 1.0 
 	 */
 	public function find($entity, $id):ObjectBO {
 		$em = $this->getEntityManager();
@@ -58,10 +61,11 @@ class DoctrineDao implements Dao{
 	 * @method Return all mapped objects on data base (orm) corresponding to a 
 	 * type of class (entity). Uses methods getRepository and findAll of EntityManager.
 	 *
-	 * @since 1.0
-	 * @access public
 	 * @param $entity - class of object (entity) mapped on data base
 	 * @return array - mapped objects fill with data
+	 * 
+	 * @access public
+	 * @since 1.0 
 	 */
 	public function findAll($entity):array {
 		$em = $this->getEntityManager();
@@ -72,9 +76,10 @@ class DoctrineDao implements Dao{
 	 * @method Update data base register associated to mapped entity. Uses methods  
 	 * persist and flush of EntityManager.
 	 *
-	 * @since 1.0
-	 * @access public
 	 * @param ttm\model\ObjectBO $entity - Object (entity) mapped on data base
+	 * 
+	 * @access public 
+	 * @since 1.0
 	 */
 	public function update(ObjectBO $entity) {
 		$em = $this->getEntityManager();
@@ -86,9 +91,10 @@ class DoctrineDao implements Dao{
 	 * @method Remove (delete) data base register associated to mapped entity. Uses methods  
 	 * remove and flush of EntityManager.
 	 *
-	 * @since 1.0
-	 * @access public
 	 * @param ttm\model\ObjectBO $entity - Object (entity) mapped on data base
+	 * 
+	 * @access public 
+	 * @since 1.0
 	 */
 	public function remove(ObjectBO $entity) {
 		$em = $this->getEntityManager();
@@ -100,11 +106,12 @@ class DoctrineDao implements Dao{
 	 * @method Create (insert) data base register associated to mapped entity. Uses methods  
 	 * persist and flush of EntityManager.
 	 *
-	 * @since 1.0
-	 * @access public
 	 * @param ttm\model\ObjectBO $entity - Object (entity) mapped on data base
 	 * @return ttm\model\ObjectBO - Object (entity) mapped on data base after register on
 	 * data base, that have all data on data base (example: auto-generated id)
+	 * 
+	 * @access public 
+	 * @since 1.0
 	 */
 	public function create(ObjectBO $entity):ObjectBO {
 		$em = $this->getEntityManager();
@@ -119,12 +126,13 @@ class DoctrineDao implements Dao{
 	 * configuration of: Implementation onf metadata cache, informations for proxies 
 	 * generation(autoGenerate) and connection with the dbms (data base management system)
 	 *
-	 * @since 1.0
-	 * @access public
 	 * @param array $options - has the options and configurations for 
 	 * create the Doctrine's entity manager (Doctrine\ORM\EntityManager)
 	 * required sets of array: driver, host, dbname, user, password, charset,modelDir,proxyDir,
 	 * proxyNamespace,autoGenerateProxyClasses
+	 * 
+	 * @access public 
+	 * @since 1.0
 	 */
 	public function getEntityManager(array $options=null) {
 		if(is_null($this->entityManager) && !is_null($options)) {
@@ -146,8 +154,11 @@ class DoctrineDao implements Dao{
 			$config->setAutoGenerateProxyClasses($options['autoGenerateProxyClasses']);
 			$config->setMetadataDriverImpl($driverImpl);
 			
-			//creating other array for database configuration
-			//just for use a unique parameter on method (for dont have two arrays)
+			/**
+			 * @var array $dataConnection
+			 * creating other array for database configuration
+			 * just for use a unique parameter on method (for dont have two arrays)
+			 */
 			$dataConnection = array();
 			$dataConnection["driver"] = $options["driver"];
 			$dataConnection["host"] = $options["host"];
