@@ -8,9 +8,11 @@ use Doctrine\ORM\Configuration;
 use Doctrine\Common\Cache\ArrayCache;
 
 /**
- * DoctrineDao - Implementation of the ttm\dao\Dao using doctrine/orm
- *
  * @author flaviodev - Flávio de Souza TTM/ITS - fdsdev@gmail.com
+ * 
+ * Class DoctrineDao - Implementation of the ttm\dao\Dao using doctrine/orm
+ * 
+ * @see ttm\dao\Dao
  * 
  * @package ttm-dao-docrine
  * @namespace ttm_dao_doctrine\dao
