@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0310e4f984fb71cca9e09215c5e8b2c5",
+    "hash": "06ee14805d632b774075d28920f9436b",
     "content-hash": "a985f7273239df13884ba0e5f37580ec",
     "packages": [],
     "packages-dev": [
@@ -82,12 +82,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "6c1b03f643fc4c388318dc3d754555c41a1cf732"
+                "reference": "0e7ac7811c67d1c4fe93e0fe44d11c90e09d6b20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/6c1b03f643fc4c388318dc3d754555c41a1cf732",
-                "reference": "6c1b03f643fc4c388318dc3d754555c41a1cf732",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/0e7ac7811c67d1c4fe93e0fe44d11c90e09d6b20",
+                "reference": "0e7ac7811c67d1c4fe93e0fe44d11c90e09d6b20",
                 "shasum": ""
             },
             "require": {
@@ -97,7 +97,7 @@
                 "doctrine/common": ">2.2,<2.4"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "^5.6.2",
                 "predis/predis": "~1.0"
             },
             "type": "library",
@@ -143,7 +143,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2016-10-26 23:08:41"
+            "time": "2016-10-29 11:43:38"
         },
         {
             "name": "doctrine/collections",
@@ -616,12 +616,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/flaviodev/ttm-core-php.git",
-                "reference": "bf8d204cd98c9be2047e30071a1dba28bdc8a6d9"
+                "reference": "ed0bb7b3c05eddf6b9caa07286a993d25163981f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flaviodev/ttm-core-php/zipball/bf8d204cd98c9be2047e30071a1dba28bdc8a6d9",
-                "reference": "bf8d204cd98c9be2047e30071a1dba28bdc8a6d9",
+                "url": "https://api.github.com/repos/flaviodev/ttm-core-php/zipball/ed0bb7b3c05eddf6b9caa07286a993d25163981f",
+                "reference": "ed0bb7b3c05eddf6b9caa07286a993d25163981f",
                 "shasum": ""
             },
             "require": {
@@ -649,7 +649,7 @@
             "keywords": [
                 "core"
             ],
-            "time": "2016-10-28 16:32:05"
+            "time": "2016-10-31 01:28:02"
         },
         {
             "name": "psr/log",
