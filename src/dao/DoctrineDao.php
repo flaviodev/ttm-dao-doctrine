@@ -2,7 +2,7 @@
 namespace ttm_dao_doctrine\dao;
 
 use Doctrine\ORM\EntityManager;
-use ttm\model\ObjectBO;
+use ttm\model\Model;
 use ttm\dao\Dao;
 use Doctrine\ORM\Configuration;
 use Doctrine\Common\Cache\ArrayCache;
@@ -49,12 +49,12 @@ class DoctrineDao implements Dao{
 	 * 
 	 * @param $entity - class of object (entity) mapped on data base
 	 * @param $id - primary key for find register on data base
-	 * @return ttm\model\ObjectBO - mapped object fill with data
+	 * @return ttm\model\Model - mapped object fill with data
 	 * 
 	 * @access public
 	 * @since 1.0 
 	 */
-	public function find($entity, $id):ObjectBO {
+	public function find($entity, $id):Model {
 		$em = $this->getEntityManager();
 		return $em->find($entity, $id);
 	}
@@ -78,12 +78,12 @@ class DoctrineDao implements Dao{
 	 * @method Update data base register associated to mapped entity. Uses methods  
 	 * persist and flush of EntityManager.
 	 *
-	 * @param ttm\model\ObjectBO $entity - Object (entity) mapped on data base
+	 * @param ttm\model\Model $entity - Object (entity) mapped on data base
 	 * 
 	 * @access public 
 	 * @since 1.0
 	 */
-	public function update(ObjectBO $entity) {
+	public function update(Model $entity) {
 		$em = $this->getEntityManager();
 		$em->persist($entity);
 		$em->flush($entity);
@@ -93,12 +93,12 @@ class DoctrineDao implements Dao{
 	 * @method Remove (delete) data base register associated to mapped entity. Uses methods  
 	 * remove and flush of EntityManager.
 	 *
-	 * @param ttm\model\ObjectBO $entity - Object (entity) mapped on data base
+	 * @param ttm\model\Model $entity - Object (entity) mapped on data base
 	 * 
 	 * @access public 
 	 * @since 1.0
 	 */
-	public function remove(ObjectBO $entity) {
+	public function remove(Model $entity) {
 		$em = $this->getEntityManager();
 		$em->remove($entity);
 		$em->flush($entity);
@@ -108,14 +108,14 @@ class DoctrineDao implements Dao{
 	 * @method Create (insert) data base register associated to mapped entity. Uses methods  
 	 * persist and flush of EntityManager.
 	 *
-	 * @param ttm\model\ObjectBO $entity - Object (entity) mapped on data base
-	 * @return ttm\model\ObjectBO - Object (entity) mapped on data base after register on
+	 * @param ttm\model\Model $entity - Object (entity) mapped on data base
+	 * @return ttm\model\Model - Object (entity) mapped on data base after register on
 	 * data base, that have all data on data base (example: auto-generated id)
 	 * 
 	 * @access public 
 	 * @since 1.0
 	 */
-	public function create(ObjectBO $entity):ObjectBO {
+	public function create(Model $entity):Model {
 		$em = $this->getEntityManager();
 		$em->persist($entity);
 		$em->flush($entity);
