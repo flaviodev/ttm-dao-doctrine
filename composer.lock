@@ -616,12 +616,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/flaviodev/ttm-core-php.git",
-                "reference": "43de9ffac3261553b04a91d2fce5e79ca02513f8"
+                "reference": "b8b83a822c9ec66eee2205d571b7b5fe624cd6ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flaviodev/ttm-core-php/zipball/43de9ffac3261553b04a91d2fce5e79ca02513f8",
-                "reference": "43de9ffac3261553b04a91d2fce5e79ca02513f8",
+                "url": "https://api.github.com/repos/flaviodev/ttm-core-php/zipball/b8b83a822c9ec66eee2205d571b7b5fe624cd6ca",
+                "reference": "b8b83a822c9ec66eee2205d571b7b5fe624cd6ca",
                 "shasum": ""
             },
             "require": {
@@ -649,7 +649,7 @@
             "keywords": [
                 "core"
             ],
-            "time": "2016-11-01 17:07:25"
+            "time": "2016-11-01 23:08:35"
         },
         {
             "name": "psr/log",
