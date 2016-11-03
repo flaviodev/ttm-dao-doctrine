@@ -6,6 +6,11 @@ use ttm\model\Model;
 use ttm\dao\Dao;
 use Doctrine\ORM\Configuration;
 use Doctrine\Common\Cache\ArrayCache;
+use Doctrine;
+use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Driver\PDOConnection;
+use Doctrine\DBAL\DriverManager;
+use Doctrine\DBAL\DBALException;
 
 /**
  * @author flaviodev - Flávio de Souza TTM/ITS - fdsdev@gmail.com
@@ -26,6 +31,23 @@ class DoctrineDao implements Dao{
 	 * @since 1.0 
 	 */
 	private $entityManager;
+	
+	/**
+	 * @property has the parameters for connecting with the database
+	 *
+	 * @access private
+	 * @since 1.0
+	 */
+	private $connectionParameters;
+
+	/**
+	 * @property has the configurations for connecting with the database
+	 *
+	 * @access private
+	 * @since 1.0
+	 */
+	private $connectionConfig;
+	
 	
 	/**
 	 * @method constructor of class
@@ -124,6 +146,66 @@ class DoctrineDao implements Dao{
 	}
 	
 	/**
+	 * @method getResult - returns registers associated to mapped entity based on a query
+	 * on entity manager using DQL - doctrine query language
+	 *
+	 * @param string $entityQuery - a select using DQL 
+	 * @param array $parameters - array of parameter for query
+	 * @return an array with the objects (entity) returned by query
+	 *
+	 * @example 'SELECT u FROM MyProject\Model\User u WHERE u.age > 20'
+	 *
+	 * @access public
+	 * @since 1.0
+	 **/
+	public function getResult(string $entityQuery, array $parameters=null) {
+		$em = $this->getEntityManager();
+		$query = $em->createQuery($entityQuery);
+		
+		if(!is_null($parameters)) {
+			$i=0;
+			foreach ($parameters as $parameter) {
+				$query->setParameter($i++, $parameter);
+			}
+		}
+		
+		return  $query->getResult();
+	}
+
+	/**
+	 * @method getResultSet - returns an array of the registers on database using a
+	 * sql query
+	 *
+	 * @param string $sql - a select using sql
+	 * @param array $parameters - array of parameter for query
+	 * @return an array with the data returned by query
+	 *
+	 * @access public
+	 * @since 1.0
+	 **/
+	public function getResultSet(string $sql, array $parameters=null){
+		try {
+			$connection = $this->getConnection();
+			$connection->connect();
+			
+			$statement = $connection->prepare($sql);
+	
+			if(!is_null($parameters)) {
+				$i=1;
+				foreach ($parameters as $parameter) {
+					$statement->bindValue($i++, $parameter);
+				}
+			}
+			
+			$statement->execute();		
+			
+			return $statement->fetchAll();
+		} finally {
+			$connection->close();
+		}
+	}
+	
+	/**
 	 * @method Create a instance of the Doctrine\ORM\EntityManager. Encapsulating the 
 	 * configuration of: Implementation onf metadata cache, informations for proxies 
 	 * generation(autoGenerate) and connection with the dbms (data base management system)
@@ -136,7 +218,7 @@ class DoctrineDao implements Dao{
 	 * @access public 
 	 * @since 1.0
 	 */
-	public function getEntityManager(array $options=null) {
+	private function getEntityManager(array $options=null) {
 		if(is_null($this->entityManager) && !is_null($options)) {
 			
 			// TODO must be implement validations of requiment sets and throws exception
@@ -155,6 +237,7 @@ class DoctrineDao implements Dao{
 			$config->setProxyNamespace($options['proxyNamespace']);
 			$config->setAutoGenerateProxyClasses($options['autoGenerateProxyClasses']);
 			$config->setMetadataDriverImpl($driverImpl);
+			$this->connectionConfig = $config; 
 			
 			/**
 			 * @var array $dataConnection
@@ -168,10 +251,21 @@ class DoctrineDao implements Dao{
 			$dataConnection["user"] = $options["user"];
 			$dataConnection["password"] = $options["password"];
 			$dataConnection["charset"] = $options["charset"];
-				
+			
+			//keep parameters for connection
+			$this->connectionParameters = $dataConnection;
+			
 			$this->entityManager = EntityManager::create($dataConnection, $config);
 		}
 		
 		return $this->entityManager;
 	}
+	
+	private function getConnection():Connection {
+		return DriverManager::getConnection($this->connectionParameters, $this->connectionConfig);
+	}
+		
+		
+		
+
 }
