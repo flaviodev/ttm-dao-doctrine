@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
 include_path=0;/ttm-dao-doctrine
+phpVersion=php7.0
+useShortTags=false

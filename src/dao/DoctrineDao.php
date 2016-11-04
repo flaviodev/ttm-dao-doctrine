@@ -1,14 +1,14 @@
 <?php
 namespace ttm_dao_doctrine\dao;
 
-use Doctrine\ORM\EntityManager;
-use ttm\model\Model;
-use ttm\dao\Dao;
-use Doctrine\ORM\Configuration;
 use Doctrine\Common\Cache\ArrayCache;
+use Doctrine\ORM\Configuration;
+use Doctrine\ORM\EntityManager;
 use Doctrine;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
+use ttm\dao\Dao;
+use ttm\model\Model;
 
 /**
  * @author flaviodev - Flávio de Souza TTM/ITS - fdsdev@gmail.com
@@ -74,7 +74,7 @@ class DoctrineDao implements Dao{
 	 * @access public
 	 * @since 1.0 
 	 */
-	public function find($entity, $id):Model {
+	public function find($entity, $id) {
 		$em = $this->getEntityManager();
 		return $em->find($entity, $id);
 	}
@@ -89,7 +89,7 @@ class DoctrineDao implements Dao{
 	 * @access public
 	 * @since 1.0 
 	 */
-	public function findAll($entity):array {
+	public function findAll($entity){
 		$em = $this->getEntityManager();
 		return $em->getRepository($entity)->findAll();
 	}
@@ -107,6 +107,8 @@ class DoctrineDao implements Dao{
 		$em = $this->getEntityManager();
 		$em->persist($entity);
 		$em->flush($entity);
+		
+		return $entity;
 	}
 
 	/**
@@ -135,7 +137,7 @@ class DoctrineDao implements Dao{
 	 * @access public 
 	 * @since 1.0
 	 */
-	public function create(Model $entity):Model {
+	public function create(Model $entity) {
 		$em = $this->getEntityManager();
 		$em->persist($entity);
 		$em->flush($entity);
@@ -161,10 +163,7 @@ class DoctrineDao implements Dao{
 		$query = $em->createQuery($entityQuery);
 		
 		if(!is_null($parameters)) {
-			$i=0;
-			foreach ($parameters as $parameter) {
-				$query->setParameter($i++, $parameter);
-			}
+			$query->setParameters($parameters);
 		}
 		
 		return  $query->getResult();
@@ -262,8 +261,5 @@ class DoctrineDao implements Dao{
 	private function getConnection():Connection {
 		return DriverManager::getConnection($this->connectionParameters, $this->connectionConfig);
 	}
-		
-		
-		
 
 }
