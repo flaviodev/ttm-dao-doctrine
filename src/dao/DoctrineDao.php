@@ -197,7 +197,7 @@ class DoctrineDao implements Dao{
 	 * @access public
 	 * @since 1.0
 	 */
-	public function update(Model $entity) {
+	public function update($entity) {
 		$em = $this->getEntityManager();
 		$em->persist($entity);
 		$em->flush($entity);
@@ -214,7 +214,7 @@ class DoctrineDao implements Dao{
 	 * @access public
 	 * @since 1.0
 	 */
-	public function remove(Model $entity) {
+	public function remove($entity) {
 		$em = $this->getEntityManager();
 		$em->remove($entity);
 		$em->flush($entity);
@@ -231,10 +231,10 @@ class DoctrineDao implements Dao{
 	 * @access public
 	 * @since 1.0
 	 */
-	public function create(Model $entity) {
+	public function create($entity) {
 		$em = $this->getEntityManager();
 		$em->persist($entity);
-		$em->flush($entity);
+		$em->flush($entity);	
 
 		return $entity;
 	}
@@ -296,6 +296,29 @@ class DoctrineDao implements Dao{
 		}
 	}
 
+	public function beginTransaction() {
+		$em = $this->getEntityManager();
+		$em->getConnection()->beginTransaction();
+	}
+	
+	public function commit() {
+		$em = $this->getEntityManager();
+		$em->getConnection()->commit();
+		$em->getConnection()->close();
+	}
+	
+	public function rollBack() {
+		$em = $this->getEntityManager();
+		$em->getConnection()->rollBack();
+		$em->getConnection()->close();
+	}
+
+	public function refresh($entity) {
+		$em = $this->getEntityManager();
+		$em->refresh($entity);
+	}
+
+	
 	/**
 	 * @method Create a instance of the Doctrine\ORM\EntityManager. Encapsulating the
 	 * configuration of: Implementation onf metadata cache, informations for proxies
@@ -309,7 +332,7 @@ class DoctrineDao implements Dao{
 	 * @access public
 	 * @since 1.0
 	 */
-	private function getEntityManager(array $options=null) {
+	public function getEntityManager(array $options=null) {
 		if(is_null($this->entityManager) && !is_null($options)) {
 				
 			// TODO must be implement validations of requiment sets and throws exception
