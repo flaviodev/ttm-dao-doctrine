@@ -46,6 +46,8 @@ class DoctrineDao implements Dao{
 	 */
 	private $connectionConfig;
 	
+
+	private $searchesWithLocaleOrder;
 	
 	/**
 	 * @method constructor of class
@@ -74,10 +76,40 @@ class DoctrineDao implements Dao{
 	 * @access public
 	 * @since 1.0 
 	 */
-	public function find($entity, $id) {
+	public function find($entity, $id, $locale=null, $localeOnly=false) {
 		$em = $this->getEntityManager();
-		return $em->find($entity, $id);
+		
+		if(is_null($locale)) {
+			return $em->find($entity, $id);
+		} 
+
+		$entityQuery = "SELECT e, s FROM ".$entity." e JOIN e.localeStrings s WHERE e.id=".$id." AND s.locale='".$locale."'";
+		
+		$result = $this->getResult($entityQuery);
+
+		if(sizeof($result)>0) {
+			return $result[0];
+		} 
+		
+		if($localeOnly) {
+			return null;
+		}
+
+		foreach ($this->searchesWithLocaleOrder as $searchLocale) {
+			if($locale != $searchLocale) {
+				$entityQuery = "SELECT e, s FROM ".$entity." e JOIN e.localeStrings s WHERE e.id=".$id." AND s.locale='".$searchLocale."'";
+		
+				$result = $this->getResult($entityQuery);
+				
+				if(sizeof($result)>0) {
+					return $result[0];
+				}
+			}
+		}
+		
+		return null;
 	}
+	
 	
 	/**
 	 * @method Return all mapped objects on data base (orm) corresponding to a 
@@ -89,9 +121,71 @@ class DoctrineDao implements Dao{
 	 * @access public
 	 * @since 1.0 
 	 */
-	public function findAll($entity){
+	public function findAll($entity, $locale=null, $localeOnly=false){
 		$em = $this->getEntityManager();
-		return $em->getRepository($entity)->findAll();
+		
+		if(is_null($locale)) {
+			return $em->getRepository($entity)->findAll();
+		}
+
+		if($localeOnly) {
+			$entityQuery = "SELECT e, s FROM ".$entity." e JOIN e.localeStrings s WHERE s.locale='".$locale."'";
+			
+			$result = $this->getResult($entityQuery);
+			
+			
+			if(sizeof($result)==0) {
+				return null;
+			}
+			
+			return $result;
+		}
+
+		$ids = array();
+		$entities = $em->getRepository($entity)->findAll();
+
+		foreach ($entities as $item) {
+			array_push($ids, $item->getId());
+		}
+		
+		$data = array();
+	
+		$entityQuery = "SELECT e, s FROM ".$entity." e JOIN e.localeStrings s WHERE s.locale='".$locale."'";
+	
+		$result = $this->getResult($entityQuery);
+	
+		foreach ($result as $item) {
+			array_push($data, $item);
+			$index = array_search($item->getId(),$ids);
+			unset($ids[$index]);
+		}
+	
+		if(sizeOf($ids)==0) {
+			return $data;
+		}
+	
+		foreach ($this->searchesWithLocaleOrder as $searchLocale) {
+			if($locale != $searchLocale) {
+				$entityQuery = "SELECT e, s FROM ".$entity." e JOIN e.localeStrings s WHERE s.locale='".$searchLocale."'";
+	
+				$result = $this->getResult($entityQuery);
+	
+				foreach ($result as $item) {
+					$index = array_search($item->getId(),$ids);
+	
+					if($index>-1){
+						array_push($data, $item);
+						unset($ids[$index]);
+					}
+				}
+	
+				if(sizeOf($ids)==0) {
+					return $data;
+				}
+			}
+		}
+	
+		return $data;
 	}
 
 	/**
@@ -235,6 +329,8 @@ class DoctrineDao implements Dao{
 			$config->setAutoGenerateProxyClasses($options['autoGenerateProxyClasses']);
 			$config->setMetadataDriverImpl($driverImpl);
 			$this->connectionConfig = $config; 
+
+			$this->searchesWithLocaleOrder=$options['searchesWithLocaleOrder'];
 			
 			/**
 			 * @var array $dataConnection
